@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/mininet/TCPSocket_iii/solution/server_solution/server.c
+sys/types.h
+-
+sys/socket.h
+-
+sys/wait.h
+-
+netinet/in.h
+-
+err.h
+-
+errno.h
+-
+limits.h
+-
+signal.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+unistd.h
+-
+

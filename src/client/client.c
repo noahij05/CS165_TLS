@@ -30,7 +30,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-
+#include <tls.h>
 
 
 static void usage()
@@ -38,6 +38,43 @@ static void usage()
 	extern char * __progname;
 	fprintf(stderr, "usage: %s ipaddress portnumber\n", __progname);
 	exit(1);
+}
+
+unsigned long hash(unsigned char *str)
+{
+	unsigned long long hash = 5381;
+	int i;
+	while (i = *str++)
+	{
+		hash = (((hash << 5) + hash) + i);
+	}
+}
+
+long which_proxy(unsigned char* yikes)
+{
+	long proxy[6] = {9993, 9994, 9995, 9996, 9997, 9998};
+	long max_val = how_heavy(yikes, proxy[0]);
+	int heaviest = 0;
+	for(unsigned i = 0; i < 6; i++)
+	{
+		if(max_val < how_heavy(yikes, proxy[i]))
+		{
+			max_val = how_heavy(yikes, proxy[i]);
+			heaviest = i;
+		}
+	}
+	return proxy[heaviest];
+}
+
+long how_heavy(unsigned char* yikes, long socket)
+{
+	long hashish = 0;
+	char buffer[80];
+	char together[80] = "";
+	strcat(together, yikes);
+	strcat(together, buffer);
+	hashish = hash(together);
+	return(hashish);
 }
 
 int main(int argc, char *argv[])
@@ -49,17 +86,21 @@ int main(int argc, char *argv[])
 	u_short port;
 	u_long p;
 	int sd;
+	int yuh;
+	struct tls_config *tls_config = NULL;
+	struct tls *tls_ctx = NULL;
+	struct tls *tls_sctx = NULL;
 
 	if (argc != 3)
 		usage();
 
-        p = strtoul(argv[2], &ep, 10);
-        if (*argv[2] == '\0' || *ep != '\0') {
+    p = strtoul(argv[2], &ep, 10);
+    if (*argv[2] == '\0' || *ep != '\0') {
 		/* parameter wasn't a number, or was empty */
 		fprintf(stderr, "%s - not a number\n", argv[2]);
 		usage();
 	}
-        if ((errno == ERANGE && p == ULONG_MAX) || (p > USHRT_MAX)) {
+    if ((errno == ERANGE && p == ULONG_MAX) || (p > USHRT_MAX)) {
 		/* It's a number, but it either can't fit in an unsigned
 		 * long, or is too big for an unsigned short
 		 */
@@ -67,7 +108,15 @@ int main(int argc, char *argv[])
 		usage();
 	}
 	/* now safe to do this */
-	port = p;
+	char *file = argv[4];
+	port = which_proxy(file);
+
+	if(tls_init() == -1)
+		errx(1, "unable to initialize TLS");
+	if((tls_cfg = tls_config_new()) == NULL)
+		errx(1, "unable to allocate TLS config");
+	if(tls_config_set_ca_file(tls_cfg, "~/CS165_TLS/certificates/root.pem") == -1)
+		errx(1, "unable to set root CA file")
 
 	/*
 	 * first set up "server_sa" to be the location of the server

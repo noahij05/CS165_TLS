@@ -87,7 +87,7 @@ int main(int argc, char *argv[])
 	u_long p;
 	int sd;
 	int yuh;
-	struct tls_config *tls_config = NULL;
+	struct tls_config *tls_cfg = NULL;
 	struct tls *tls_ctx = NULL;
 	struct tls *tls_sctx = NULL;
 
@@ -116,7 +116,7 @@ int main(int argc, char *argv[])
 	if((tls_cfg = tls_config_new()) == NULL)
 		errx(1, "unable to allocate TLS config");
 	if(tls_config_set_ca_file(tls_cfg, "~/CS165_TLS/certificates/root.pem") == -1)
-		errx(1, "unable to set root CA file")
+		errx(1, "unable to set root CA file");
 
 	/*
 	 * first set up "server_sa" to be the location of the server

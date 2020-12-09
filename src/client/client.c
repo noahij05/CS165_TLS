@@ -139,6 +139,19 @@ int main(int argc, char *argv[])
 	    == -1)
 		err(1, "connect failed");
 
+	if((tls_ctx = tls_client()) == NULL)
+		errx(1, "TLS client creation failed");
+	if(tls_configure(tls_ctx, tls_cfg) == -1)
+		errx(1, "tls configuration failed (%s)", tls_error(tls_ctx));
+	if (tls_connect_socket(tls_ctx, sd, "localhost") == -1)
+		errx(1, "tls connection failed (%s)", tls_error(tls_ctx));
+
+	do {
+		if ((yuh = tls_handshake(tls_ctx)) == -1)
+			errx(1, "tls handshake failed (%s)", tls_error(tls_ctx));
+	}while(yuh == TLS_WANT_POLLIN || yuh == TLS_WANT_POLLOUT);
+
+
 	/*
 	 * finally, we are connected. find out what magnificent wisdom
 	 * our server is going to send to us - since we really don't know
@@ -154,15 +167,37 @@ int main(int argc, char *argv[])
 	 */
 	r = -1;
 	rc = 0;
+	strncpy(buffer, file, sizeof(buffer));
+	//proxy send
 	maxread = sizeof(buffer) - 1; /* leave room for a 0 byte */
 	while ((r != 0) && rc < maxread) {
-		r = read(sd, buffer + rc, maxread - rc);
-		if (r == -1) {
-			if (errno != EINTR)
-				err(1, "read failed");
+		r = tls_write(tls_ctx, buffer + rc, maxread - rc);
+		if (r == TLS_WANT_POLLIN || r == TLS_WANT_POLLOUT) {
+			continue;}
+		if (r < 0)
+		{
+			err(1, "TLS write failed (%s)", tls_error(tls_ctx));
 		} else
 			rc += r;
 	}
+
+	//proxy read
+	r = -1;
+	rc = 0;
+	//strncpy(buffer, file, sizeof(buffer));
+	maxread = sizeof(buffer) - 1; /* leave room for a 0 byte */
+	while ((r != 0) && rc < maxread) {
+		r = tls_read(tls_ctx, buffer + rc, maxread - rc);
+		if (r == TLS_WANT_POLLIN || r == TLS_WANT_POLLOUT) {
+			continue;}
+		if (r < 0)
+		{
+			err(1, "TLS write failed (%s)", tls_error(tls_ctx));
+		} else
+			rc += r;
+	}
+
+
 	/*
 	 * we must make absolutely sure buffer has a terminating 0 byte
 	 * if we are to use it as a C string

@@ -39,6 +39,8 @@
 #include <string.h>
 #include <unistd.h>
 
+#include <tls.h>
+
 static void usage()
 {
 	extern char * __progname;
@@ -62,6 +64,11 @@ int main(int argc,  char *argv[])
 	u_short port;
 	pid_t pid;
 	u_long p;
+	int i;
+	struct tls_config *tls_cfg = NULL;
+	struct tls *tls_ctx = NULL;
+	struct tls *tls_cctx = NULL; // Client context
+	struct tls *tls_sctx = NULL; // Server context
 
 	/*
 	 * first, figure out what port we will listen on - it should
@@ -72,12 +79,12 @@ int main(int argc,  char *argv[])
 		usage();
 		errno = 0;
         p = strtoul(argv[1], &ep, 10);
-        if (*argv[1] == '\0' || *ep != '\0') {
+    if (*argv[1] == '\0' || *ep != '\0') {
 		/* parameter wasn't a number, or was empty */
 		fprintf(stderr, "%s - not a number\n", argv[1]);
 		usage();
 	}
-        if ((errno == ERANGE && p == ULONG_MAX) || (p > USHRT_MAX)) {
+    if ((errno == ERANGE && p == ULONG_MAX) || (p > USHRT_MAX)) {
 		/* It's a number, but it either can't fit in an unsigned
 		 * long, or is too big for an unsigned short
 		 */
@@ -87,10 +94,27 @@ int main(int argc,  char *argv[])
 	/* now safe to do this */
 	port = p;
 
-	/* the message we send the client */
-	strlcpy(buffer,
-	    "What is the air speed velocity of a coconut laden swallow?\n",
-	    sizeof(buffer));
+	/* TLS setup*/
+	tls_cfg = tls_config_new();
+	if(tls_cfg == NULL) {
+		errx(1, "TLS config allocation falied");
+	}
+	if (tls_config_set_ca_file(tls_cfg, "/home/halvoroni/school/cs165/final_project/CS165_TLS/certificates/root.pem") == -1) {
+		errx(1, "Error setting root CA");
+	}
+	if (tls_config_set_cert_file(tls_cfg, "/home/halvoroni/school/cs165/final_project/CS165_TLS/certificates/server.crt") == -1) {
+		errx(1, "Error setting TLS certificate file: (%s)", tls_config_error(tls_cfg));
+	}
+	if (tls_config_set_key_file(tls_cfg, "/home/halvoroni/school/cs165/final_project/CS165_TLS/certificates/server.key") == -1) {
+		errx(1, "unable to set TLS key file");
+	}
+	tls_ctx = tls_server();
+	if (tls_ctx == NULL) {
+		errx(1, "TLS server creation failed");
+	}
+	if (tls_configure(tls_ctx, tls_cfg) == -1) {
+		errx(1, "TLS configuration failed (%s)", tls_error(tls_ctx));
+	}
 
 	memset(&sockname, 0, sizeof(sockname));
 	sockname.sin_family = AF_INET;
@@ -119,14 +143,14 @@ int main(int argc,  char *argv[])
 	 * SIGCHLD.
 	 */
 	sa.sa_handler = kidhandler;
-        sigemptyset(&sa.sa_mask);
+    sigemptyset(&sa.sa_mask);
 	/*
 	 * we want to allow system calls like accept to be restarted if they
 	 * get interrupted by a SIGCHLD
 	 */
-        sa.sa_flags = SA_RESTART;
-        if (sigaction(SIGCHLD, &sa, NULL) == -1)
-                err(1, "sigaction failed");
+    sa.sa_flags = SA_RESTART;
+    if (sigaction(SIGCHLD, &sa, NULL) == -1)
+        err(1, "sigaction failed");
 
 	/*
 	 * finally - the main loop.  accept connections and deal with 'em
@@ -149,7 +173,35 @@ int main(int argc,  char *argv[])
 		     err(1, "fork failed");
 
 		if(pid == 0) {
-			ssize_t written, w;
+			ssize_t written, w, r, rc; 
+			size_t maxread;
+
+			i = 0;
+			if (tls_accept_socket(tls_ctx, &tls_cctx, clientsd) == -1)
+				errx(1, "tls accept failed (%s)", tls_error(tls_ctx));
+			else {
+				do {
+					if ((i = tls_handshake(tls_cctx)) == -1)
+						errx(1, "tls handshake failed (%s)", tls_error(tls_ctx));
+				} while(i == TLS_WANT_POLLIN || i == TLS_WANT_POLLOUT);
+			}
+
+
+			r = -1;
+			rc = 0;
+			maxread = sizeof(buffer) - 1; /* leave room for a 0 byte */
+			while ((r != 0) && rc < maxread) {
+			//printf("reading");
+				r = tls_read(tls_cctx, buffer + rc, maxread - rc);
+				if (r == TLS_WANT_POLLIN || r == TLS_WANT_POLLOUT)
+					continue;
+				if (r < 0) {
+					err(1, "tls_read failed (%s)", tls_error(tls_cctx));
+				} else
+					rc += r;
+			}
+
+
 			/*
 			 * write the message to the client, being sure to
 			 * handle a short write, or being interrupted by
@@ -158,15 +210,22 @@ int main(int argc,  char *argv[])
 			w = 0;
 			written = 0;
 			while (written < strlen(buffer)) {
-				w = write(clientsd, buffer + written,
+				w = tls_write(tls_cctx, buffer + written,
 				    strlen(buffer) - written);
-				if (w == -1) {
-					if (errno != EINTR)
-						err(1, "write failed");
+				if (w == TLS_WANT_POLLIN || w == TLS_WANT_POLLOUT) {
+					continue;
+				}
+				if (w < 0) {
+					errx(1, "TLS write falied (%s)", tls_error(tls_cctx));
 				}
 				else
 					written += w;
 			}
+			i = 0;
+			do {
+				i = tls_close(tls_cctx);
+			} while(i == TLS_WANT_POLLIN || i == TLS_WANT_POLLOUT);
+			
 			close(clientsd);
 			exit(0);
 		}

@@ -91,7 +91,7 @@ int main(int argc, char *argv[])
 	struct tls *tls_ctx = NULL;
 	struct tls *tls_sctx = NULL;
 
-	if (argc != 3)
+	if (argc != 4)
 		usage();
 
     p = strtoul(argv[2], &ep, 10);
@@ -108,14 +108,14 @@ int main(int argc, char *argv[])
 		usage();
 	}
 	/* now safe to do this */
-	char *file = argv[4];
+	char *file = argv[3];
 	port = which_proxy(file);
 
 	if(tls_init() == -1)
 		errx(1, "unable to initialize TLS");
 	if((tls_cfg = tls_config_new()) == NULL)
 		errx(1, "unable to allocate TLS config");
-	if(tls_config_set_ca_file(tls_cfg, "~/CS165_TLS/certificates/root.pem") == -1)
+	if(tls_config_set_ca_file(tls_cfg, "../certificates/root.pem") == -1)
 		errx(1, "unable to set root CA file");
 
 	/*

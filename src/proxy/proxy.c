@@ -17,6 +17,8 @@
 
 #include <tls.h>
 
+#define CACHE 100
+
 static void usage()
 {
 	extern char * __progname;
@@ -29,11 +31,29 @@ static void kidhandler(int signum) {
 	waitpid(WAIT_ANY, NULL, WNOHANG);
 }
 
-int hash (unsigned char *str);
+int hash (unsigned char *str) {
+	unsigned long h = 5381;
+	int i;
+	while(i = *str++) {
+		h = ((h << 5) + h) +i;
+	}
+	return h % CACHE;
+}
 
-bool checkBloom(int, int, int, int);
+// return true if possibly cached, false if not cached
+bool checkBloom(int *cache, int hval) {
+	if (*(cache + hval)) {
+		return true;
+	}
+	return false;
+}
 
-void addBloom(int, int, int, int);
+void addBloom(const char *buf, char *bloom) {
+	unsigned int i, j, l, x;
+	l = strlen(buf);
+	a = hash(buf, l);
+	
+}
 
 int main(int argc, char *argv[]) {
 

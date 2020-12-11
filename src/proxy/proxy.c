@@ -66,11 +66,11 @@ int hash (unsigned char *str) {
 }
 
 // return true if possibly cached, false if not cached
-bool checkBloom(int *cache, int hval) {
+int checkBloom(char *cache, int hval) {
 	if (*(cache + hval)) {
-		return true;
+		return 1;
 	}
-	return false;
+	return 0;
 }
 
 void addBloom(unsigned char *buf, char *bloom) {

@@ -48,6 +48,8 @@ unsigned long hash(unsigned char *str)
 	{
 		hash = (((hash << 5) + hash) + i);
 	}
+
+	return hash % 100;
 }
 
 long which_proxy(unsigned char* yikes)

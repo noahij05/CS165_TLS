@@ -174,7 +174,7 @@ int main(int argc,  char *argv[])
 
 		if(pid == 0) {
 			ssize_t written, w, r, rc; 
-			size_t maxread;
+			size_t max_read;
 
 			i = 0;
 			if (tls_accept_socket(tls_ctx, &tls_cctx, clientsd) == -1)
@@ -189,10 +189,9 @@ int main(int argc,  char *argv[])
 
 			r = -1;
 			rc = 0;
-			maxread = sizeof(buffer) - 1; /* leave room for a 0 byte */
-			while ((r != 0) && rc < maxread) {
-			//printf("reading");
-				r = tls_read(tls_cctx, buffer + rc, maxread - rc);
+			max_read = sizeof(buffer) - 1; /* leave room for a 0 byte */
+			while ((r != 0) && rc < max_read) {
+				r = tls_read(tls_cctx, buffer + rc, max_read - rc);
 				if (r == TLS_WANT_POLLIN || r == TLS_WANT_POLLOUT)
 					continue;
 				if (r < 0) {

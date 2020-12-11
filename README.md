@@ -1,7 +1,7 @@
-## CS165_TLS -- TLS Cache
+## CS165_TLS -- TLS Cache - Noah Jimenez njime006 - Jacob Halvorson jhalv001
 ------------------------
 
-This repository contains the starter code for the CS165 project. The directory structure is as follows:
+This repository contains the code for the CS165 project. The directory structure is as follows:
 ```
 certificates/	// Contains CA and server certificates.
 scripts/	// Helper scripts.
@@ -72,6 +72,10 @@ set(CLIENT_SRC client/client_1.c client/client_2.c)
 ```
 Your code can be split into any number of files as necessary, but remember that they are all compiled to a single runnable binary. 
 If you want to create more binaries, you can copy the three lines explained above and change the variable and file names as necesary.
+
+### Errors
+-------------------------
+
 
 
 ### Useful(!) Resources 

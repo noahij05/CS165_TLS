@@ -19,6 +19,31 @@
 
 #define CACHE 100
 
+
+
+	pthread_mutex_t lock;
+	struct sockaddr_in sockname, server_sa;
+	char buffer[80], *ep;
+	size_t maxread;
+	struct sigaction sa;
+	int serverCall[1] = {0};
+	int sd, i, ssd,t;
+	char bloom[40] = {0};
+	unsigned int fileLen;
+	socklen_t clientlen;
+	u_short port;
+	u_short serverport;
+	pid_t pid;
+	u_long p;
+	u_long sp;
+	struct tls_config *tls_cfg = NULL; // TLS config
+	struct tls_config *tls_scfg = NULL; //TLS server config
+	struct tls *tls_ctx = NULL; // TLS context
+	struct tls *tls_cctx = NULL; // client's TLS context
+	struct tls *tls_sctx = NULL; // server's TLS context
+	int clientsd;
+
+
 static void usage()
 {
 	extern char * __progname;

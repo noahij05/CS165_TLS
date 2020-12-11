@@ -99,13 +99,13 @@ int main(int argc,  char *argv[])
 	if(tls_cfg == NULL) {
 		errx(1, "TLS config allocation falied");
 	}
-	if (tls_config_set_ca_file(tls_cfg, "/home/halvoroni/school/cs165/final_project/CS165_TLS/certificates/root.pem") == -1) {
+	if (tls_config_set_ca_file(tls_cfg, "../../certificates/root.pem") == -1) {
 		errx(1, "Error setting root CA");
 	}
-	if (tls_config_set_cert_file(tls_cfg, "/home/halvoroni/school/cs165/final_project/CS165_TLS/certificates/server.crt") == -1) {
+	if (tls_config_set_cert_file(tls_cfg, "../../certificates/server.crt") == -1) {
 		errx(1, "Error setting TLS certificate file: (%s)", tls_config_error(tls_cfg));
 	}
-	if (tls_config_set_key_file(tls_cfg, "/home/halvoroni/school/cs165/final_project/CS165_TLS/certificates/server.key") == -1) {
+	if (tls_config_set_key_file(tls_cfg, "../../certificates/server.key") == -1) {
 		errx(1, "unable to set TLS key file");
 	}
 	tls_ctx = tls_server();

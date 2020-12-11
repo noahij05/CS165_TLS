@@ -48,10 +48,10 @@ bool checkBloom(int *cache, int hval) {
 	return false;
 }
 
-void addBloom(const char *buf, char *bloom) {
-	unsigned int i, j, l, x;
+void addBloom(unsigned char *buf, char *bloom) {
+	int a, l;
 	l = strlen(buf);
-	a = hash(buf, l);
+	a = hash(buf);
 	
 }
 

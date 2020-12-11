@@ -73,9 +73,9 @@ set(CLIENT_SRC client/client_1.c client/client_2.c)
 Your code can be split into any number of files as necessary, but remember that they are all compiled to a single runnable binary. 
 If you want to create more binaries, you can copy the three lines explained above and change the variable and file names as necesary.
 
-### Errors
+### Work split and Compile Errors
 -------------------------
-
+Noah implemented client.c and Jacob implemented server.c. We implemented the TLS handshake between client and server as well as the file transfer over TLS. However we ran into issues when we made the proxy. We are getting an error trying to use the pthread library, and after researching online the most common suggestion to fix the issue was adding a line to the makefile, however this did not seem to work. This is how far we got and we will resubmit late when we figure out the issue with the proxy server.
 
 
 ### Useful(!) Resources 

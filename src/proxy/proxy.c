@@ -97,11 +97,11 @@ void *threadFunc(){
 			
 			//create bloom fliter
 			fileLen = strlen(buffer);
-			if(bloom_query(bloom, buffer)){
+			if(checkBloom(bloom, buffer)){
 				printf("sending contents of %s to the client\n", buffer);
 				boolCache = 1;
 			} else {
-				bloom_insert(bloom, buffer);
+				addBloom(bloom, buffer);
 				printf("retrieving contents of %s from server then string to client\n", buffer);
 			}
 				

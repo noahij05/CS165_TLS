@@ -17,7 +17,7 @@ licenses/	// Open source licenses for code used.
 1. Download and extract the code.
 2. Run the following commands:
 ```
-$ cd TCPSocket_iii
+$ cd CS165_TLS
 $ source scripts/setup.sh
 
 Generate the server and client certificates
@@ -26,7 +26,7 @@ $ make
 ```
 3. The plaintext server and client can be used as follows:
 ```
-$ cd TCPSocket_iii
+$ cd CS165_TLS
 
 Run the server:
 $ ./build/src/server 9999
@@ -37,16 +37,15 @@ $ ./build/src/client 127.0.0.1 9999
 
 ### How to build and run code
 --------------------------
-1. Add your code in `src/client` or `src/server`. 
-2. Go to `build/`
-3. Run `make`
+1. Go to `build/`
+2. Run `make`
 
 
 ### Scripts included
 --------------------------
 1. `setup.sh` should be run exactly once after you have downloaded code, and never again. It extracts and builds the dependencies in extern/, and builds and links the code in src/ with LibreSSL.
 2. `reset.sh` reverts the directory to its initial state. It does not touch `src/` or `certificates/`. Run `make clean` in `certificates/` to delete the generated certificates.
-
+(please note that this Repository is currently in use on other machines. Therefore once you download this repo, you may need to do step 2 first, then step 1)
 
 ### FAQ
 --------------------------

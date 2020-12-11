@@ -1,4 +1,4 @@
-## TCPSocket_iii -- TLS Cache
+## CS165_TLS -- TLS Cache
 ------------------------
 
 This repository contains the starter code for the CS165 project. The directory structure is as follows:

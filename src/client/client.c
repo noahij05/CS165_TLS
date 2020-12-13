@@ -51,6 +51,8 @@ unsigned long hash(unsigned char *str)
 
 	return hash % 100;
 }
+/*
+###THIS IS UNUSED TODO IS TO FIX IT IN EVENT OF MULTIPLE PROXIES
 
 long how_heavy(unsigned char* yikes, long socket)
 {
@@ -80,7 +82,7 @@ long which_proxy(unsigned char* yikes)
 	}
 	return proxy[heaviest];
 }
-
+*/
 
 int main(int argc, char *argv[])
 {
@@ -114,13 +116,13 @@ int main(int argc, char *argv[])
 	}
 	/* now safe to do this */
 	char *file = argv[3];
-	port = which_proxy(file);
+	port = p; //which_proxy(file);
 
 	if(tls_init() == -1)
 		errx(1, "unable to initialize TLS");
 	if((tls_cfg = tls_config_new()) == NULL)
 		errx(1, "unable to allocate TLS config");
-	if(tls_config_set_ca_file(tls_cfg, "../certificates/root.pem") == -1)
+	if(tls_config_set_ca_file(tls_cfg, "/home/mininet/CS165_TLS/certificates/root.pem") == -1)
 		errx(1, "unable to set root CA file");
 
 	/*

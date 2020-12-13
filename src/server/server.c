@@ -99,19 +99,20 @@ int main(int argc,  char *argv[])
 	}
 	/* now safe to do this */
 	port = p;
-
+	
+		
 	/* TLS setup*/
 	tls_cfg = tls_config_new();
 	if(tls_cfg == NULL) {
 		errx(1, "TLS config allocation falied");
 	}
-	if (tls_config_set_ca_file(tls_cfg, "../../certificates/root.pem") == -1) {
+	if (tls_config_set_ca_file(tls_cfg, "/home/mininet/CS165_TLS/certificates/root.pem") == -1) {
 		errx(1, "Error setting root CA");
 	}
-	if (tls_config_set_cert_file(tls_cfg, "../../certificates/server.crt") == -1) {
+	if (tls_config_set_cert_file(tls_cfg, "/home/mininet/CS165_TLS/certificates/server.crt") == -1) {
 		errx(1, "Error setting TLS certificate file: (%s)", tls_config_error(tls_cfg));
 	}
-	if (tls_config_set_key_file(tls_cfg, "../../certificates/server.key") == -1) {
+	if (tls_config_set_key_file(tls_cfg, "/home/mininet/CS165_TLS/certificates/server.key") == -1) {
 		errx(1, "unable to set TLS key file");
 	}
 	tls_ctx = tls_server();
@@ -124,7 +125,7 @@ int main(int argc,  char *argv[])
 
 	memset(&sockname, 0, sizeof(sockname));
 	sockname.sin_family = AF_INET;
-	sockname.sin_port = htons(port);
+	sockname.sin_port = htons(p);
 	sockname.sin_addr.s_addr = htonl(INADDR_ANY);
 	sd=socket(AF_INET,SOCK_STREAM,0);
 	if ( sd == -1)
@@ -212,6 +213,14 @@ int main(int argc,  char *argv[])
 			 * handle a short write, or being interrupted by
 			 * a signal before we could write anything.
 			 */
+			//strlcpy(buffer, "Did we send this right?\n", sizeof(buffer));
+			char filename1[120] = "/home/mininet/CS165_TLS/build/src/";
+			strcat(filename1, buffer);
+			FILE *fp;
+			fp = fopen(filename1, "r");
+			fgets(buffer, sizeof(buffer), (FILE*) fp); 
+			//fscanf(fp, "%s", buffer)
+			
 			w = 0;
 			written = 0;
 			while (written < strlen(buffer)) {

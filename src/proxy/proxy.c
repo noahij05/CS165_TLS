@@ -42,6 +42,15 @@
 	struct tls *tls_cctx = NULL; // client's TLS context
 	struct tls *tls_sctx = NULL; // server's TLS context
 	int clientsd;
+	char cachefilename[80], cachefilestuff[80];
+	int boolCache = 0;	
+	
+void cachee(char *name, char *contents)
+{
+	strlcpy(cachefilename, name, sizeof(cachefilename));
+	strlcpy(cachefilestuff, contents, sizeof(cachefilestuff));
+	boolCache = 1;
+}
 
 
 static void usage()
@@ -65,7 +74,8 @@ int hash (unsigned char *str) {
 	return h % CACHE;
 }
 
-// return true if possibly cached, false if not cached
+/*
+###FILTERS NOT IN USE TODO FIX THEM
 int checkBloom(char *cache, int hval) {
 	if (*(cache + hval)) {
 		return 1;
@@ -79,7 +89,7 @@ void addBloom(unsigned char *buf, char *bloom) {
 	a = hash(buf);
 	
 }
-
+*/
 void *threadFunc(){
 		/*
 		 * We fork child to deal with each connection, this way more
@@ -88,7 +98,7 @@ void *threadFunc(){
 		*/
 	pthread_mutex_lock(&lock);
 			ssize_t written, w,r ,rc;
-			unsigned int boolCache = 0;
+			//unsigned int boolCache = 0;
 			i = 0;
 			if (tls_accept_socket(tls_ctx, &tls_cctx, clientsd) == -1)
 				errx(1, "tls accept failed (%s)", tls_error(tls_ctx));
@@ -120,7 +130,7 @@ void *threadFunc(){
 // 			printf(buffer);
 // 			printf(" to the client\n");
 			
-			//create bloom fliter
+			/*create bloom fliter
 			fileLen = strlen(buffer);
 			if(checkBloom(bloom, buffer)){
 				printf("sending contents of %s to the client\n", buffer);
@@ -128,7 +138,7 @@ void *threadFunc(){
 			} else {
 				addBloom(bloom, buffer);
 				printf("retrieving contents of %s from server then string to client\n", buffer);
-			}
+			}*/
 				
 
 			strncpy(buffer,
@@ -136,12 +146,10 @@ void *threadFunc(){
 	    		sizeof(buffer));
 			
 
-			//TODO FLITER
-			//TODO CONNECTION TO SERVER	
 			//new TLS for proxy and server
 			if((tls_scfg = tls_config_new()) == NULL)
 				errx(1 ," unable to allocate TLS config");
-			if(tls_config_set_ca_file(tls_scfg, "/home/csmajs/dgunn001/CS165/TLSCache-master/certificates/root.pem") == -1)
+			if(tls_config_set_ca_file(tls_scfg, "/home/mininet/CS165_TLS/certificates/root.pem") == -1)
 				errx(1, "unable to set root CA file");
 			
 			if((tls_sctx = tls_client()) == NULL)
@@ -149,7 +157,7 @@ void *threadFunc(){
 			if(tls_configure(tls_sctx, tls_scfg) == -1)
 				errx(1, "tls configureation failed (%s)" , tls_error(tls_sctx));
 			   
-			 memset(&server_sa, 0, sizeof(server_sa));
+			memset(&server_sa, 0, sizeof(server_sa));
 			server_sa.sin_family = AF_INET;
 			server_sa.sin_port = htons(serverport);
 			server_sa.sin_addr.s_addr = htonl(INADDR_ANY);
@@ -168,6 +176,9 @@ void *threadFunc(){
 			//SET UP WRITING TO SERVER (FILENAME)
 			r = -1;
 			rc = 0;
+			char filename1[80];
+			strlcpy(filename1, buffer, sizeof(filename1));
+			
 			maxread = sizeof(buffer) - 1; /* leave room for a 0 byte */
 			while ((r != 0) && rc < maxread) {
 			//printf("reading");
@@ -199,11 +210,13 @@ void *threadFunc(){
 			 */
 			buffer[rc] = '\0';
 			if(boolCache == 1){
-			printf("IN CACHE Proxy sent: contents of %s\n\n",buffer);
-			} else {
-			printf("Server sent: contents of %s\n\n",buffer);
+			printf("Proxy sent contents of %s\n\n",cachefilename);
+			} 
+			else {
+			printf("Server sent contents of %s\n\n",filename1);
 			}
 			close(ssd);		     
+			cachee(filename1, buffer);
 				     
 			/*
 			 * write the message to the client, being sure to
@@ -283,11 +296,11 @@ int main(int argc,  char *argv[])
 	/* set up TLS */
 	if ((tls_cfg = tls_config_new()) == NULL)
 		errx(1, "unable to allocate TLS config");
-	if (tls_config_set_ca_file(tls_cfg, "../certificates/root.pem") == -1)
+	if (tls_config_set_ca_file(tls_cfg, "/home/mininet/CS165_TLS/certificates/root.pem") == -1)
 		errx(1, "unable to set root CA file");
-	if (tls_config_set_cert_file(tls_cfg, "../certificates/server.crt") == -1) 
+	if (tls_config_set_cert_file(tls_cfg, "/home/mininet/CS165_TLS/certificates/server.crt") == -1) 
 		errx(1, "unable to set TLS certificate file, error: (%s)", tls_config_error(tls_cfg));
-	if (tls_config_set_key_file(tls_cfg, "../certificates/server.key") == -1)
+	if (tls_config_set_key_file(tls_cfg, "/home/mininet/CS165_TLS/certificates/server.key") == -1)
 		errx(1, "unable to set TLS key file");
 	if ((tls_ctx = tls_server()) == NULL)
 		errx(1, "TLS server creation failed");
@@ -295,9 +308,9 @@ int main(int argc,  char *argv[])
 		errx(1, "TLS configuration failed (%s)", tls_error(tls_ctx));
 
 	/* the message we send the client */
-	strncpy(buffer,
-	    "It was the best of times, it was the worst of times... \n",
-	    sizeof(buffer));
+	//strncpy(buffer,
+	  //  "It was the best of times, it was the worst of times... \n",
+	    //sizeof(buffer));
 
 	
 	memset(&sockname, 0, sizeof(sockname));
@@ -350,6 +363,8 @@ int main(int argc,  char *argv[])
 		
 		if (clientsd == -1)
 			err(1, "accept failed");
+		else
+			printf("accepted client\n");
 	while(clientsd = accept(sd, (struct sockaddr *)&client, &clientlen)) {
 		void *ret;
 		pthread_t tid;

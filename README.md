@@ -31,8 +31,11 @@ $ cd CS165_TLS
 Run the server:
 $ ./build/src/server 9999
 
+Run the proxy:
+$ ./build/src/proxy 9998 9999
+
 Run the client (in another terminal):
-$ ./build/src/client 127.0.0.1 9999
+$ ./build/src/client 127.0.0.1 9998 toSend.txt
 ```
 
 ### How to build and run code
@@ -75,7 +78,7 @@ If you want to create more binaries, you can copy the three lines explained abov
 
 ### Work split and Compile Errors
 -------------------------
-Noah implemented client.c and Jacob implemented server.c. We implemented the TLS handshake between client and server as well as the file transfer over TLS. However we ran into issues when we made the proxy. We are getting an error trying to use the pthread library, and after researching online the most common suggestion to fix the issue was adding a line to the makefile, however this did not seem to work. This is how far we got and we will resubmit late when we figure out the issue with the proxy server.
+Noah implemented client.c and Jacob implemented server.c. Both worked together on proxy.c. No errors encounted when making. However, we unfortunately were not able to fully implement caching, as we just hardcoded it to work with the single "toSend.txt" file we have. We also were not able run multiple proxies and clients. When running 1 instance of all three programs, the TLS handshakes all worked and the client was able to send a file name to proxy, proxy retrieved said file from server and cache it, then proxy sent it back to client. If the file was already in the cache, then it sent it the file from the cache. 
 
 
 ### Useful(!) Resources 

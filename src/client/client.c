@@ -52,22 +52,6 @@ unsigned long hash(unsigned char *str)
 	return hash % 100;
 }
 
-long which_proxy(unsigned char* yikes)
-{
-	long proxy[6] = {9993, 9994, 9995, 9996, 9997, 9998};
-	long max_val = how_heavy(yikes, proxy[0]);
-	int heaviest = 0;
-	for(unsigned i = 0; i < 6; i++)
-	{
-		if(max_val < how_heavy(yikes, proxy[i]))
-		{
-			max_val = how_heavy(yikes, proxy[i]);
-			heaviest = i;
-		}
-	}
-	return proxy[heaviest];
-}
-
 long how_heavy(unsigned char* yikes, long socket)
 {
 	long hashish = 0;
@@ -78,6 +62,25 @@ long how_heavy(unsigned char* yikes, long socket)
 	hashish = hash(together);
 	return(hashish);
 }
+
+
+long which_proxy(unsigned char* yikes)
+{
+	long proxy[6] = {9993, 9994, 9995, 9996, 9997, 9998};
+	long max_val = how_heavy(yikes, proxy[0]);
+	int heaviest = 0;
+	unsigned i = 0;
+	for(i = 0; i < 6; i++)
+	{
+		if(max_val < how_heavy(yikes, proxy[i]))
+		{
+			max_val = how_heavy(yikes, proxy[i]);
+			heaviest = i;
+		}
+	}
+	return proxy[heaviest];
+}
+
 
 int main(int argc, char *argv[])
 {

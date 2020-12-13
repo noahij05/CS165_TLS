@@ -59,19 +59,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/mininet/TCPSocket_iii/extern/cmake/bin/cmake
+CMAKE_COMMAND = /home/mininet/CS165_TLS/extern/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /home/mininet/TCPSocket_iii/extern/cmake/bin/cmake -E rm -f
+RM = /home/mininet/CS165_TLS/extern/cmake/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mininet/TCPSocket_iii
+CMAKE_SOURCE_DIR = /home/mininet/CS165_TLS
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mininet/TCPSocket_iii/build
+CMAKE_BINARY_DIR = /home/mininet/CS165_TLS/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -100,9 +100,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mininet/TCPSocket_iii/build/CMakeFiles /home/mininet/TCPSocket_iii/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mininet/CS165_TLS/build/CMakeFiles /home/mininet/CS165_TLS/build/CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mininet/TCPSocket_iii/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mininet/CS165_TLS/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -131,17 +131,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named server
+# Target rules for targets named proxy
 
 # Build rule for target.
-server: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 server
-.PHONY : server
+proxy: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 proxy
+.PHONY : proxy
 
 # fast build rule for target.
-server/fast:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/build
-.PHONY : server/fast
+proxy/fast:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/proxy.dir/build.make src/CMakeFiles/proxy.dir/build
+.PHONY : proxy/fast
 
 #=============================================================================
 # Target rules for targets named client
@@ -155,6 +155,19 @@ client: cmake_check_build_system
 client/fast:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/client.dir/build.make src/CMakeFiles/client.dir/build
 .PHONY : client/fast
+
+#=============================================================================
+# Target rules for targets named server
+
+# Build rule for target.
+server: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 server
+.PHONY : server
+
+# fast build rule for target.
+server/fast:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/build
+.PHONY : server/fast
 
 #=============================================================================
 # Target rules for targets named server_solution
@@ -192,6 +205,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... client"
 	@echo "... client_solution"
+	@echo "... proxy"
 	@echo "... server"
 	@echo "... server_solution"
 .PHONY : help

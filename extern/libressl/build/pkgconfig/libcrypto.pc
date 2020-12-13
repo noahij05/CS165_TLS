@@ -1,6 +1,6 @@
 #libcrypto pkg-config source file
 
-prefix=/home/mininet/TCPSocket_iii/extern/libressl_install
+prefix=/home/mininet/CS165_TLS/extern/libressl_install
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include

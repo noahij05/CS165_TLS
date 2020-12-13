@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/mininet/TCPSocket_iii/solution/server_solution/server.c" "/home/mininet/TCPSocket_iii/build/solution/CMakeFiles/server_solution.dir/server_solution/server.c.o"
+  "/home/mininet/CS165_TLS/solution/server_solution/server.c" "/home/mininet/CS165_TLS/build/solution/CMakeFiles/server_solution.dir/server_solution/server.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

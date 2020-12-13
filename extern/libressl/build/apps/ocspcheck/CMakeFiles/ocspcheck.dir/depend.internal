@@ -16,8 +16,8 @@ apps/ocspcheck/CMakeFiles/ocspcheck.dir/http.c.o
  ../include/compat/unistd.h
  ../include/compat/win32netcompat.h
  ../include/tls.h
- /home/mininet/TCPSocket_iii/extern/libressl/apps/ocspcheck/http.c
- /home/mininet/TCPSocket_iii/extern/libressl/apps/ocspcheck/http.h
+ /home/mininet/CS165_TLS/extern/libressl/apps/ocspcheck/http.c
+ /home/mininet/CS165_TLS/extern/libressl/apps/ocspcheck/http.h
 apps/ocspcheck/CMakeFiles/ocspcheck.dir/ocspcheck.c.o
  ../include/compat/arpa/inet.h
  ../include/compat/err.h
@@ -76,5 +76,5 @@ apps/ocspcheck/CMakeFiles/ocspcheck.dir/ocspcheck.c.o
  ../include/openssl/x509.h
  ../include/openssl/x509_vfy.h
  ../include/openssl/x509v3.h
- /home/mininet/TCPSocket_iii/extern/libressl/apps/ocspcheck/http.h
- /home/mininet/TCPSocket_iii/extern/libressl/apps/ocspcheck/ocspcheck.c
+ /home/mininet/CS165_TLS/extern/libressl/apps/ocspcheck/http.h
+ /home/mininet/CS165_TLS/extern/libressl/apps/ocspcheck/ocspcheck.c

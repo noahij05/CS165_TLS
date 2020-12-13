@@ -1,8 +1,8 @@
-# Install script for directory: /home/mininet/TCPSocket_iii/extern/libressl/crypto
+# Install script for directory: /home/mininet/CS165_TLS/extern/libressl/crypto
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/mininet/TCPSocket_iii/extern/libressl_install")
+  set(CMAKE_INSTALL_PREFIX "/home/mininet/CS165_TLS/extern/libressl_install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -50,8 +50,8 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     endif()
   endforeach()
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES
-    "/home/mininet/TCPSocket_iii/extern/libressl/build/crypto/libcrypto.so.46.1.0"
-    "/home/mininet/TCPSocket_iii/extern/libressl/build/crypto/libcrypto.so.46"
+    "/home/mininet/CS165_TLS/extern/libressl/build/crypto/libcrypto.so.46.1.0"
+    "/home/mininet/CS165_TLS/extern/libressl/build/crypto/libcrypto.so.46"
     )
   foreach(file
       "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libcrypto.so.46.1.0"
@@ -73,7 +73,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libcrypto.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/mininet/TCPSocket_iii/extern/libressl/build/crypto/libcrypto.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/mininet/CS165_TLS/extern/libressl/build/crypto/libcrypto.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libcrypto.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libcrypto.so")
     if(CMAKE_INSTALL_DO_STRIP)

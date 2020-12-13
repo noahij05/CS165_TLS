@@ -1,8 +1,8 @@
-# Install script for directory: /home/mininet/TCPSocket_iii/extern/libressl/include
+# Install script for directory: /home/mininet/CS165_TLS/extern/libressl/include
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/mininet/TCPSocket_iii/extern/libressl_install")
+  set(CMAKE_INSTALL_PREFIX "/home/mininet/CS165_TLS/extern/libressl_install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,6 +38,6 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/mininet/TCPSocket_iii/extern/libressl/include/." REGEX "/CMakeLists\\.txt$" EXCLUDE REGEX "/compat$" EXCLUDE REGEX "/pqueue\\.h$" EXCLUDE REGEX "/Makefile[^/]*$" EXCLUDE)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/mininet/CS165_TLS/extern/libressl/include/." REGEX "/CMakeLists\\.txt$" EXCLUDE REGEX "/compat$" EXCLUDE REGEX "/pqueue\\.h$" EXCLUDE REGEX "/Makefile[^/]*$" EXCLUDE)
 endif()
 

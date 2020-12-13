@@ -6,8 +6,8 @@ apps/nc/CMakeFiles/nc.dir/atomicio.c.o
  ../include/compat/stdlib.h
  ../include/compat/sys/types.h
  ../include/compat/unistd.h
- /home/mininet/TCPSocket_iii/extern/libressl/apps/nc/atomicio.c
- /home/mininet/TCPSocket_iii/extern/libressl/apps/nc/atomicio.h
+ /home/mininet/CS165_TLS/extern/libressl/apps/nc/atomicio.c
+ /home/mininet/CS165_TLS/extern/libressl/apps/nc/atomicio.h
 apps/nc/CMakeFiles/nc.dir/compat/base64.c.o
  ../apps/nc/compat/sys/socket.h
  ../include/compat/arpa/inet.h
@@ -20,7 +20,7 @@ apps/nc/CMakeFiles/nc.dir/compat/base64.c.o
  ../include/compat/sys/types.h
  ../include/compat/unistd.h
  ../include/compat/win32netcompat.h
- /home/mininet/TCPSocket_iii/extern/libressl/apps/nc/compat/base64.c
+ /home/mininet/CS165_TLS/extern/libressl/apps/nc/compat/base64.c
 apps/nc/CMakeFiles/nc.dir/compat/readpassphrase.c.o
  ../include/compat/fcntl.h
  ../include/compat/readpassphrase.h
@@ -28,7 +28,7 @@ apps/nc/CMakeFiles/nc.dir/compat/readpassphrase.c.o
  ../include/compat/string.h
  ../include/compat/sys/types.h
  ../include/compat/unistd.h
- /home/mininet/TCPSocket_iii/extern/libressl/apps/nc/compat/readpassphrase.c
+ /home/mininet/CS165_TLS/extern/libressl/apps/nc/compat/readpassphrase.c
 apps/nc/CMakeFiles/nc.dir/compat/socket.c.o
  ../apps/nc/compat/sys/socket.h
  ../include/compat/fcntl.h
@@ -36,13 +36,13 @@ apps/nc/CMakeFiles/nc.dir/compat/socket.c.o
  ../include/compat/sys/types.h
  ../include/compat/unistd.h
  ../include/compat/win32netcompat.h
- /home/mininet/TCPSocket_iii/extern/libressl/apps/nc/compat/socket.c
+ /home/mininet/CS165_TLS/extern/libressl/apps/nc/compat/socket.c
 apps/nc/CMakeFiles/nc.dir/compat/strtonum.c.o
  ../include/compat/limits.h
  ../include/compat/stdlib.h
  ../include/compat/sys/param.h
  ../include/compat/sys/types.h
- /home/mininet/TCPSocket_iii/extern/libressl/apps/nc/compat/strtonum.c
+ /home/mininet/CS165_TLS/extern/libressl/apps/nc/compat/strtonum.c
 apps/nc/CMakeFiles/nc.dir/netcat.c.o
  ../apps/nc/compat/sys/socket.h
  ../include/compat/err.h
@@ -62,8 +62,8 @@ apps/nc/CMakeFiles/nc.dir/netcat.c.o
  ../include/compat/unistd.h
  ../include/compat/win32netcompat.h
  ../include/tls.h
- /home/mininet/TCPSocket_iii/extern/libressl/apps/nc/atomicio.h
- /home/mininet/TCPSocket_iii/extern/libressl/apps/nc/netcat.c
+ /home/mininet/CS165_TLS/extern/libressl/apps/nc/atomicio.h
+ /home/mininet/CS165_TLS/extern/libressl/apps/nc/netcat.c
 apps/nc/CMakeFiles/nc.dir/socks.c.o
  ../apps/nc/compat/sys/socket.h
  ../include/compat/arpa/inet.h
@@ -78,5 +78,5 @@ apps/nc/CMakeFiles/nc.dir/socks.c.o
  ../include/compat/sys/types.h
  ../include/compat/unistd.h
  ../include/compat/win32netcompat.h
- /home/mininet/TCPSocket_iii/extern/libressl/apps/nc/atomicio.h
- /home/mininet/TCPSocket_iii/extern/libressl/apps/nc/socks.c
+ /home/mininet/CS165_TLS/extern/libressl/apps/nc/atomicio.h
+ /home/mininet/CS165_TLS/extern/libressl/apps/nc/socks.c

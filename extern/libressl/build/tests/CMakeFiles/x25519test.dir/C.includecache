@@ -54,7 +54,7 @@ openssl/opensslfeatures.h
 
 ../include/openssl/opensslfeatures.h
 
-/home/mininet/TCPSocket_iii/extern/libressl/tests/x25519test.c
+/home/mininet/CS165_TLS/extern/libressl/tests/x25519test.c
 stdint.h
 -
 stdio.h

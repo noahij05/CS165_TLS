@@ -59,19 +59,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/mininet/TCPSocket_iii/extern/cmake/bin/cmake
+CMAKE_COMMAND = /home/mininet/CS165_TLS/extern/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /home/mininet/TCPSocket_iii/extern/cmake/bin/cmake -E rm -f
+RM = /home/mininet/CS165_TLS/extern/cmake/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mininet/TCPSocket_iii
+CMAKE_SOURCE_DIR = /home/mininet/CS165_TLS
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mininet/TCPSocket_iii/build
+CMAKE_BINARY_DIR = /home/mininet/CS165_TLS/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -100,14 +100,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/mininet/TCPSocket_iii/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/mininet/TCPSocket_iii/build/CMakeFiles /home/mininet/TCPSocket_iii/build/src/CMakeFiles/progress.marks
-	cd /home/mininet/TCPSocket_iii/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mininet/TCPSocket_iii/build/CMakeFiles 0
+	cd /home/mininet/CS165_TLS/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/mininet/CS165_TLS/build/CMakeFiles /home/mininet/CS165_TLS/build/src/CMakeFiles/progress.marks
+	cd /home/mininet/CS165_TLS/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mininet/CS165_TLS/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/mininet/TCPSocket_iii/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/clean
+	cd /home/mininet/CS165_TLS/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/clean
 .PHONY : clean
 
 # The main clean target
@@ -117,37 +117,37 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/mininet/TCPSocket_iii/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
+	cd /home/mininet/CS165_TLS/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/mininet/TCPSocket_iii/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
+	cd /home/mininet/CS165_TLS/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/mininet/TCPSocket_iii/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/mininet/CS165_TLS/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
-src/CMakeFiles/server.dir/rule:
-	cd /home/mininet/TCPSocket_iii/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/server.dir/rule
-.PHONY : src/CMakeFiles/server.dir/rule
+src/CMakeFiles/proxy.dir/rule:
+	cd /home/mininet/CS165_TLS/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/proxy.dir/rule
+.PHONY : src/CMakeFiles/proxy.dir/rule
 
 # Convenience name for target.
-server: src/CMakeFiles/server.dir/rule
+proxy: src/CMakeFiles/proxy.dir/rule
 
-.PHONY : server
+.PHONY : proxy
 
 # fast build rule for target.
-server/fast:
-	cd /home/mininet/TCPSocket_iii/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/build
-.PHONY : server/fast
+proxy/fast:
+	cd /home/mininet/CS165_TLS/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/proxy.dir/build.make src/CMakeFiles/proxy.dir/build
+.PHONY : proxy/fast
 
 # Convenience name for target.
 src/CMakeFiles/client.dir/rule:
-	cd /home/mininet/TCPSocket_iii/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/client.dir/rule
+	cd /home/mininet/CS165_TLS/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/client.dir/rule
 .PHONY : src/CMakeFiles/client.dir/rule
 
 # Convenience name for target.
@@ -157,8 +157,23 @@ client: src/CMakeFiles/client.dir/rule
 
 # fast build rule for target.
 client/fast:
-	cd /home/mininet/TCPSocket_iii/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/client.dir/build.make src/CMakeFiles/client.dir/build
+	cd /home/mininet/CS165_TLS/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/client.dir/build.make src/CMakeFiles/client.dir/build
 .PHONY : client/fast
+
+# Convenience name for target.
+src/CMakeFiles/server.dir/rule:
+	cd /home/mininet/CS165_TLS/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/server.dir/rule
+.PHONY : src/CMakeFiles/server.dir/rule
+
+# Convenience name for target.
+server: src/CMakeFiles/server.dir/rule
+
+.PHONY : server
+
+# fast build rule for target.
+server/fast:
+	cd /home/mininet/CS165_TLS/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/build
+.PHONY : server/fast
 
 client/client.o: client/client.c.o
 
@@ -166,7 +181,7 @@ client/client.o: client/client.c.o
 
 # target to build an object file
 client/client.c.o:
-	cd /home/mininet/TCPSocket_iii/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/client.dir/build.make src/CMakeFiles/client.dir/client/client.c.o
+	cd /home/mininet/CS165_TLS/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/client.dir/build.make src/CMakeFiles/client.dir/client/client.c.o
 .PHONY : client/client.c.o
 
 client/client.i: client/client.c.i
@@ -175,7 +190,7 @@ client/client.i: client/client.c.i
 
 # target to preprocess a source file
 client/client.c.i:
-	cd /home/mininet/TCPSocket_iii/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/client.dir/build.make src/CMakeFiles/client.dir/client/client.c.i
+	cd /home/mininet/CS165_TLS/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/client.dir/build.make src/CMakeFiles/client.dir/client/client.c.i
 .PHONY : client/client.c.i
 
 client/client.s: client/client.c.s
@@ -184,8 +199,35 @@ client/client.s: client/client.c.s
 
 # target to generate assembly for a file
 client/client.c.s:
-	cd /home/mininet/TCPSocket_iii/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/client.dir/build.make src/CMakeFiles/client.dir/client/client.c.s
+	cd /home/mininet/CS165_TLS/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/client.dir/build.make src/CMakeFiles/client.dir/client/client.c.s
 .PHONY : client/client.c.s
+
+proxy/proxy.o: proxy/proxy.c.o
+
+.PHONY : proxy/proxy.o
+
+# target to build an object file
+proxy/proxy.c.o:
+	cd /home/mininet/CS165_TLS/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/proxy.dir/build.make src/CMakeFiles/proxy.dir/proxy/proxy.c.o
+.PHONY : proxy/proxy.c.o
+
+proxy/proxy.i: proxy/proxy.c.i
+
+.PHONY : proxy/proxy.i
+
+# target to preprocess a source file
+proxy/proxy.c.i:
+	cd /home/mininet/CS165_TLS/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/proxy.dir/build.make src/CMakeFiles/proxy.dir/proxy/proxy.c.i
+.PHONY : proxy/proxy.c.i
+
+proxy/proxy.s: proxy/proxy.c.s
+
+.PHONY : proxy/proxy.s
+
+# target to generate assembly for a file
+proxy/proxy.c.s:
+	cd /home/mininet/CS165_TLS/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/proxy.dir/build.make src/CMakeFiles/proxy.dir/proxy/proxy.c.s
+.PHONY : proxy/proxy.c.s
 
 server/server.o: server/server.c.o
 
@@ -193,7 +235,7 @@ server/server.o: server/server.c.o
 
 # target to build an object file
 server/server.c.o:
-	cd /home/mininet/TCPSocket_iii/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/server/server.c.o
+	cd /home/mininet/CS165_TLS/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/server/server.c.o
 .PHONY : server/server.c.o
 
 server/server.i: server/server.c.i
@@ -202,7 +244,7 @@ server/server.i: server/server.c.i
 
 # target to preprocess a source file
 server/server.c.i:
-	cd /home/mininet/TCPSocket_iii/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/server/server.c.i
+	cd /home/mininet/CS165_TLS/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/server/server.c.i
 .PHONY : server/server.c.i
 
 server/server.s: server/server.c.s
@@ -211,7 +253,7 @@ server/server.s: server/server.c.s
 
 # target to generate assembly for a file
 server/server.c.s:
-	cd /home/mininet/TCPSocket_iii/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/server/server.c.s
+	cd /home/mininet/CS165_TLS/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/server/server.c.s
 .PHONY : server/server.c.s
 
 # Help Target
@@ -223,10 +265,14 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... client"
+	@echo "... proxy"
 	@echo "... server"
 	@echo "... client/client.o"
 	@echo "... client/client.i"
 	@echo "... client/client.s"
+	@echo "... proxy/proxy.o"
+	@echo "... proxy/proxy.i"
+	@echo "... proxy/proxy.s"
 	@echo "... server/server.o"
 	@echo "... server/server.i"
 	@echo "... server/server.s"
@@ -241,6 +287,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/mininet/TCPSocket_iii/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/mininet/CS165_TLS/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

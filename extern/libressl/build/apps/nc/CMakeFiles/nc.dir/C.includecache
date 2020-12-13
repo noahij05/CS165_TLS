@@ -166,7 +166,7 @@ stddef.h
 stdint.h
 -
 
-/home/mininet/TCPSocket_iii/extern/libressl/apps/nc/atomicio.c
+/home/mininet/CS165_TLS/extern/libressl/apps/nc/atomicio.c
 errno.h
 -
 poll.h
@@ -174,11 +174,11 @@ poll.h
 unistd.h
 -
 atomicio.h
-/home/mininet/TCPSocket_iii/extern/libressl/apps/nc/atomicio.h
+/home/mininet/CS165_TLS/extern/libressl/apps/nc/atomicio.h
 
-/home/mininet/TCPSocket_iii/extern/libressl/apps/nc/atomicio.h
+/home/mininet/CS165_TLS/extern/libressl/apps/nc/atomicio.h
 
-/home/mininet/TCPSocket_iii/extern/libressl/apps/nc/compat/base64.c
+/home/mininet/CS165_TLS/extern/libressl/apps/nc/compat/base64.c
 sys/types.h
 -
 sys/socket.h
@@ -200,7 +200,7 @@ stdlib.h
 string.h
 -
 
-/home/mininet/TCPSocket_iii/extern/libressl/apps/nc/compat/readpassphrase.c
+/home/mininet/CS165_TLS/extern/libressl/apps/nc/compat/readpassphrase.c
 termios.h
 -
 signal.h
@@ -218,13 +218,13 @@ unistd.h
 readpassphrase.h
 -
 
-/home/mininet/TCPSocket_iii/extern/libressl/apps/nc/compat/socket.c
+/home/mininet/CS165_TLS/extern/libressl/apps/nc/compat/socket.c
 sys/socket.h
 -
 fcntl.h
 -
 
-/home/mininet/TCPSocket_iii/extern/libressl/apps/nc/compat/strtonum.c
+/home/mininet/CS165_TLS/extern/libressl/apps/nc/compat/strtonum.c
 errno.h
 -
 limits.h
@@ -232,7 +232,7 @@ limits.h
 stdlib.h
 -
 
-/home/mininet/TCPSocket_iii/extern/libressl/apps/nc/netcat.c
+/home/mininet/CS165_TLS/extern/libressl/apps/nc/netcat.c
 sys/types.h
 -
 sys/socket.h
@@ -278,9 +278,9 @@ tls.h
 unistd.h
 -
 atomicio.h
-/home/mininet/TCPSocket_iii/extern/libressl/apps/nc/atomicio.h
+/home/mininet/CS165_TLS/extern/libressl/apps/nc/atomicio.h
 
-/home/mininet/TCPSocket_iii/extern/libressl/apps/nc/socks.c
+/home/mininet/CS165_TLS/extern/libressl/apps/nc/socks.c
 sys/types.h
 -
 sys/socket.h
@@ -308,5 +308,5 @@ resolv.h
 readpassphrase.h
 -
 atomicio.h
-/home/mininet/TCPSocket_iii/extern/libressl/apps/nc/atomicio.h
+/home/mininet/CS165_TLS/extern/libressl/apps/nc/atomicio.h
 

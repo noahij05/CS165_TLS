@@ -192,7 +192,7 @@ openssl/opensslconf.h
 
 ../include/openssl/stack.h
 
-/home/mininet/TCPSocket_iii/extern/libressl/tests/ecdhtest.c
+/home/mininet/CS165_TLS/extern/libressl/tests/ecdhtest.c
 stdio.h
 -
 stdlib.h

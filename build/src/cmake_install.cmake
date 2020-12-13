@@ -1,4 +1,4 @@
-# Install script for directory: /home/mininet/TCPSocket_iii/src
+# Install script for directory: /home/mininet/CS165_TLS/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

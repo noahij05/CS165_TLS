@@ -1,8 +1,8 @@
-# Install script for directory: /home/mininet/TCPSocket_iii/extern/libressl/apps/nc
+# Install script for directory: /home/mininet/CS165_TLS/extern/libressl/apps/nc
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/mininet/TCPSocket_iii/extern/libressl_install")
+  set(CMAKE_INSTALL_PREFIX "/home/mininet/CS165_TLS/extern/libressl_install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

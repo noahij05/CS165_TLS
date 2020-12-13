@@ -64,7 +64,7 @@ openssl/opensslfeatures.h
 
 ../include/openssl/opensslfeatures.h
 
-/home/mininet/TCPSocket_iii/extern/libressl/tests/igetest.c
+/home/mininet/CS165_TLS/extern/libressl/tests/igetest.c
 assert.h
 -
 stdio.h

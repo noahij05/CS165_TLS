@@ -1,8 +1,8 @@
-# Install script for directory: /home/mininet/TCPSocket_iii/extern/libressl/apps/openssl
+# Install script for directory: /home/mininet/CS165_TLS/extern/libressl/apps/openssl
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/mininet/TCPSocket_iii/extern/libressl_install")
+  set(CMAKE_INSTALL_PREFIX "/home/mininet/CS165_TLS/extern/libressl_install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -44,12 +44,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/openssl"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/mininet/TCPSocket_iii/extern/libressl/build/apps/openssl/openssl")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/mininet/CS165_TLS/extern/libressl/build/apps/openssl/openssl")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/openssl" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/openssl")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/openssl"
-         OLD_RPATH "/home/mininet/TCPSocket_iii/extern/libressl/build/tls:/home/mininet/TCPSocket_iii/extern/libressl/build/ssl:/home/mininet/TCPSocket_iii/extern/libressl/build/crypto:"
+         OLD_RPATH "/home/mininet/CS165_TLS/extern/libressl/build/tls:/home/mininet/CS165_TLS/extern/libressl/build/ssl:/home/mininet/CS165_TLS/extern/libressl/build/crypto:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/openssl")
@@ -58,34 +58,34 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/man/man1" TYPE FILE FILES "/home/mininet/TCPSocket_iii/extern/libressl/apps/openssl/openssl.1")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/man/man1" TYPE FILE FILES "/home/mininet/CS165_TLS/extern/libressl/apps/openssl/openssl.1")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/mininet/TCPSocket_iii/extern/libressl_install/etc/ssl/cert.pem;/home/mininet/TCPSocket_iii/extern/libressl_install/etc/ssl/openssl.cnf;/home/mininet/TCPSocket_iii/extern/libressl_install/etc/ssl/x509v3.cnf")
+   "/home/mininet/CS165_TLS/extern/libressl_install/etc/ssl/cert.pem;/home/mininet/CS165_TLS/extern/libressl_install/etc/ssl/openssl.cnf;/home/mininet/CS165_TLS/extern/libressl_install/etc/ssl/x509v3.cnf")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/mininet/TCPSocket_iii/extern/libressl_install/etc/ssl" TYPE FILE FILES
-    "/home/mininet/TCPSocket_iii/extern/libressl/apps/openssl/cert.pem"
-    "/home/mininet/TCPSocket_iii/extern/libressl/apps/openssl/openssl.cnf"
-    "/home/mininet/TCPSocket_iii/extern/libressl/apps/openssl/x509v3.cnf"
+file(INSTALL DESTINATION "/home/mininet/CS165_TLS/extern/libressl_install/etc/ssl" TYPE FILE FILES
+    "/home/mininet/CS165_TLS/extern/libressl/apps/openssl/cert.pem"
+    "/home/mininet/CS165_TLS/extern/libressl/apps/openssl/openssl.cnf"
+    "/home/mininet/CS165_TLS/extern/libressl/apps/openssl/x509v3.cnf"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/mininet/TCPSocket_iii/extern/libressl_install/etc/ssl/certs/")
+   "/home/mininet/CS165_TLS/extern/libressl_install/etc/ssl/certs/")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/mininet/TCPSocket_iii/extern/libressl_install/etc/ssl/certs" TYPE DIRECTORY FILES "")
+file(INSTALL DESTINATION "/home/mininet/CS165_TLS/extern/libressl_install/etc/ssl/certs" TYPE DIRECTORY FILES "")
 endif()
 

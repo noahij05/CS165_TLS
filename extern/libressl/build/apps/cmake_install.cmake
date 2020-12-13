@@ -1,8 +1,8 @@
-# Install script for directory: /home/mininet/TCPSocket_iii/extern/libressl/apps
+# Install script for directory: /home/mininet/CS165_TLS/extern/libressl/apps
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/mininet/TCPSocket_iii/extern/libressl_install")
+  set(CMAKE_INSTALL_PREFIX "/home/mininet/CS165_TLS/extern/libressl_install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -39,9 +39,9 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/mininet/TCPSocket_iii/extern/libressl/build/apps/ocspcheck/cmake_install.cmake")
-  include("/home/mininet/TCPSocket_iii/extern/libressl/build/apps/openssl/cmake_install.cmake")
-  include("/home/mininet/TCPSocket_iii/extern/libressl/build/apps/nc/cmake_install.cmake")
+  include("/home/mininet/CS165_TLS/extern/libressl/build/apps/ocspcheck/cmake_install.cmake")
+  include("/home/mininet/CS165_TLS/extern/libressl/build/apps/openssl/cmake_install.cmake")
+  include("/home/mininet/CS165_TLS/extern/libressl/build/apps/nc/cmake_install.cmake")
 
 endif()
 

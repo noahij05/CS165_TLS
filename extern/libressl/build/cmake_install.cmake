@@ -1,8 +1,8 @@
-# Install script for directory: /home/mininet/TCPSocket_iii/extern/libressl
+# Install script for directory: /home/mininet/CS165_TLS/extern/libressl
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/mininet/TCPSocket_iii/extern/libressl_install")
+  set(CMAKE_INSTALL_PREFIX "/home/mininet/CS165_TLS/extern/libressl_install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,18 +38,18 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE DIRECTORY FILES "/home/mininet/TCPSocket_iii/extern/libressl/build/pkgconfig")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE DIRECTORY FILES "/home/mininet/CS165_TLS/extern/libressl/build/pkgconfig")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/mininet/TCPSocket_iii/extern/libressl/build/crypto/cmake_install.cmake")
-  include("/home/mininet/TCPSocket_iii/extern/libressl/build/ssl/cmake_install.cmake")
-  include("/home/mininet/TCPSocket_iii/extern/libressl/build/apps/cmake_install.cmake")
-  include("/home/mininet/TCPSocket_iii/extern/libressl/build/tls/cmake_install.cmake")
-  include("/home/mininet/TCPSocket_iii/extern/libressl/build/include/cmake_install.cmake")
-  include("/home/mininet/TCPSocket_iii/extern/libressl/build/man/cmake_install.cmake")
-  include("/home/mininet/TCPSocket_iii/extern/libressl/build/tests/cmake_install.cmake")
+  include("/home/mininet/CS165_TLS/extern/libressl/build/crypto/cmake_install.cmake")
+  include("/home/mininet/CS165_TLS/extern/libressl/build/ssl/cmake_install.cmake")
+  include("/home/mininet/CS165_TLS/extern/libressl/build/apps/cmake_install.cmake")
+  include("/home/mininet/CS165_TLS/extern/libressl/build/tls/cmake_install.cmake")
+  include("/home/mininet/CS165_TLS/extern/libressl/build/include/cmake_install.cmake")
+  include("/home/mininet/CS165_TLS/extern/libressl/build/man/cmake_install.cmake")
+  include("/home/mininet/CS165_TLS/extern/libressl/build/tests/cmake_install.cmake")
 
 endif()
 
@@ -61,5 +61,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/mininet/TCPSocket_iii/extern/libressl/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/mininet/CS165_TLS/extern/libressl/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

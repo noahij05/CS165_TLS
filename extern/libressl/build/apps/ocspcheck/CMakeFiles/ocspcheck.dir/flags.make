@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_FLAGS =  -O2 -Wall -O3 -DNDEBUG -fPIE   -Wno-pointer-sign
 
-C_DEFINES = -DDEFAULT_CA_FILE=\"/home/mininet/TCPSocket_iii/extern/libressl_install/etc/ssl/cert.pem\" -DHAVE_ASPRINTF -DHAVE_CLOCK_GETTIME -DHAVE_ERR_H -DHAVE_GETAUXVAL -DHAVE_GETPAGESIZE -DHAVE_MEMMEM -DHAVE_STRCASECMP -DHAVE_STRNDUP -DHAVE_STRNLEN -DHAVE_STRSEP -DHAVE_SYSLOG -DHAVE_TIMEGM -DLIBRESSL_INTERNAL -DOPENSSL_NO_HW_PADLOCK -DSIZEOF_TIME_T=8 -D_BSD_SOURCE -D_DEFAULT_SOURCE -D_GNU_SOURCE -D_POSIX_SOURCE -D__BEGIN_HIDDEN_DECLS="" -D__END_HIDDEN_DECLS=""
+C_DEFINES = -DDEFAULT_CA_FILE=\"/home/mininet/CS165_TLS/extern/libressl_install/etc/ssl/cert.pem\" -DHAVE_ASPRINTF -DHAVE_CLOCK_GETTIME -DHAVE_ERR_H -DHAVE_GETAUXVAL -DHAVE_GETPAGESIZE -DHAVE_MEMMEM -DHAVE_STRCASECMP -DHAVE_STRNDUP -DHAVE_STRNLEN -DHAVE_STRSEP -DHAVE_SYSLOG -DHAVE_TIMEGM -DLIBRESSL_INTERNAL -DOPENSSL_NO_HW_PADLOCK -DSIZEOF_TIME_T=8 -D_BSD_SOURCE -D_DEFAULT_SOURCE -D_GNU_SOURCE -D_POSIX_SOURCE -D__BEGIN_HIDDEN_DECLS="" -D__END_HIDDEN_DECLS=""
 
-C_INCLUDES = -I/home/mininet/TCPSocket_iii/extern/libressl/apps/ocspcheck/. -I/home/mininet/TCPSocket_iii/extern/libressl/apps/ocspcheck/./compat -I/home/mininet/TCPSocket_iii/extern/libressl/apps/ocspcheck/../../include/compat -I/home/mininet/TCPSocket_iii/extern/libressl/tls/../include -I/home/mininet/TCPSocket_iii/extern/libressl/ssl/../include -I/home/mininet/TCPSocket_iii/extern/libressl/crypto/../include 
+C_INCLUDES = -I/home/mininet/CS165_TLS/extern/libressl/apps/ocspcheck/. -I/home/mininet/CS165_TLS/extern/libressl/apps/ocspcheck/./compat -I/home/mininet/CS165_TLS/extern/libressl/apps/ocspcheck/../../include/compat -I/home/mininet/CS165_TLS/extern/libressl/tls/../include -I/home/mininet/CS165_TLS/extern/libressl/ssl/../include -I/home/mininet/CS165_TLS/extern/libressl/crypto/../include 
 

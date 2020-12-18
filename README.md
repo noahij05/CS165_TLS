@@ -1,5 +1,7 @@
-## CS165_TLS -- TLS Cache - Noah Jimenez njime006 - Jacob Halvorson jhalv001
+## CS165_TLS -- TLS Cache  
 ------------------------
+Noah Jimenez  
+Jacob Halvorson - https://github.com/jhalvorson6687  
 
 This repository contains the code for the CS165 project. The directory structure is as follows:
 ```
